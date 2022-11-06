@@ -111,51 +111,70 @@
 
   // objarray 에 { text: 'Four', value: 'D' } 를 추가하시오.
   // length 프로퍼티를 사용하여 추가.
-  objarray[objarray.length + 0] = { text: 'Four', value: 'D' };
-  objarray[objarray.length + 0] = { text: 'five', value: 'F' };
-  objarray[objarray.length + 0] = { text: 'six', value: 'G' };
+  objarray.push({ text: 'Four', value: 'D' });
+  objarray[objarray.length] = { text: 'Four', value: 'D' };
   console.log(objarray);
-  // objarray 에서 { text: 'Two', value: 'B' } 를 findIndex 를 이용하여
-  // { text: 'Two', value: 'B' } 를 index를 찾고 { text: '2', value: '2' } 로 바꾸시오
 
 
   // objarray 에서 filter 메서드를 사용하여
   // text의 값이 'One' 인 객체들을 찾아서 console.log 로 출력하시오
-  const obj = objarray.filter((value, index, array) => {
-    if (value.text === 'One')
+  const arrFilter = objarray.filter((item, index, array) => {
+    if (item.text === 'One')
       return true;
     else
       return false;
-  });
-
-  console.log(obj);
-
+  })
+  console.log(arrFilter); // [{ text: 'One', value: 'A' }]
 
   // objarray 에서 filter 메서드를 사용하여 { text: 'Three', value: 'C' } 를 삭제하시오.
+  const arrRemove = objarray.filter((item, index, array) => {
+    if (item.text === 'Three' && item.value === 'C')
+      return false;
+    else
+      return true;
+  });
+  console.log(arrRemove); // [ ]
 
-  const fil = objarray.filter((value, index, array) => {
-    if (value.text === 'Three')
+  // objarray 에서 filter 메서드를 사용하여 text가 'One' 객체들을 찾으시오
+  const arrFilterOne = objarray.filter((item, index, array) => {
+    if (item.text === 'One')
       return true;
     else
       return false;
   });
-  objarray.splice(2, 1);
-  console.log(objarray);
+  console.log(arrFilterOne); // [ ]
 
 
+  // objarray 에서 map 메서드를 사용하여 no 프로퍼티 추가하시오
+  //   [
+  //       { text: 'One',  value: 'A', no: 1 },
+  //       { text: '2',    value: '2', no: 1  },
+  //       { text: 'Four', value: 'D', no: 1  },
+  //   ]
+  const newObjarray = objarray.map((item, index, array) => {
+    // debugger;
+    item.no = index;
+    return item;
+  })
+  console.log(newObjarray); // [ ]
 
 
-// objarray 에서 map 메서드를 사용하여 no 프로퍼티 추가하시오
-//   [
-//       { text: 'One', value: 'A', no:0 },
-//       { text: '2', value: '2', no:1  },
-//       { text: 'Four', value: 'D', no:2  },
-//   ]
+  // objarray 에서 reduce 메서드를 사용하여
+  // 각 요소의 value 프로퍼티 를 합쳐서 하나의 문자열로 만드시오
+  // map을 이용하여 value 값만 들어있는 배열을 만들고
+  // reduce를 이용하여 하나의 문자열로 만든다.
+  //   A2D 가 출력
+  const arrStr = objarray.map((item, index, array) => {
+    return item.value;
+  });
+  console.log(arrStr); // [ 'A', '2', 'D' ]
 
-// objarray 에서 reduce 메서드를 사용하여
-// 각 요소의 value 프로퍼티 를 합쳐서 하나의 문자열로 만드시오
-// map을 이용하여 value 값만 들어있는 배열을 만들고
-// reduce를 이용하여 하나의 문자열로 만든다.
-//   A2D 가 출력
-
+  // '' + 'A' = 'A'
+  // 'A' + '2' = 'A2'
+  // 'A2' + 'D' = 'A2D'
+  const str = arrStr.reduce((pvaule, cvalue, index, array) => {
+    debugger;
+    return pvaule + cvalue;
+  }, '');
+  console.log(str);
 </script>
