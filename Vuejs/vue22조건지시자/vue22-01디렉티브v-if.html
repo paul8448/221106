@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
     <title>Vue Template - Data Binding</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- CSS import -->
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet"
+      href="../css/reset.css">
 
     <style>
-        .container {
-            color: red;
-            font-weight: bold;
-            font-size: 20pt;
-        }
+      .container {
+        color: red;
+        font-weight: bold;
+        font-size: 20pt;
+      }
 
-        div {
-            padding-bottom: 3px;
-            border-bottom: 1px dashed blue;
-        }
+      div {
+        padding-bottom: 3px;
+        border-bottom: 1px dashed blue;
+      }
     </style>
 
-</head>
+  </head>
 
-<body>
+  <body>
     <xmp>
         [1] v-if 디렉티브 :
         [2] v-else 디렉티브 :
@@ -49,57 +52,187 @@
 
 
     <h2>
-        v-if 연습 1.
-        #app1 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설정하면 될까?
+      v-if 연습 1.
+      #app1 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설정하면 될까?
     </h2>
     <div id="app1">
-        <h3 v-if="awesome">Vue is awesome!</h3>
-        <h3 v-else>Oh no 😢</h3>
+      <h3 v-if="awesome">Vue is awesome!</h3>
+      <h3 v-else>Oh no 😢</h3>
     </div>
 
     <h2>
-        v-else 연습 2
-        #app2 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설쟁하면 될까?
+      v-else 연습 2
+      #app2 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설쟁하면 될까?
     </h2>
     <div id="app2">
-        <h3 v-if="awesome">Vue is awesome!</h3>
-        <h3 v-else>Oh no 😢</h3>
+      <h3 v-if="awesome">Vue is awesome!</h3>
+      <h3 v-else>Oh no 😢</h3>
     </div>
 
     <h2>
-        v-if/v-else 연습 3<br />
-        위의 2 예제를 결합하는 예제 입니다.<br />
-        버튼을 클릭하면 awesome의 값을 반전시킨다. <br />
-        클릭하면 awesome : true ==>  awesome : false<br />
-        클릭하면 awesome : false ==>  awesome : true<br />
-        각자 실습
+      v-if/v-else 연습 3<br />
+      위의 2 예제를 결합하는 예제 입니다.<br />
+      버튼을 클릭하면 awesome의 값을 반전시킨다. <br />
+      클릭하면 awesome : true ==> awesome : false<br />
+      클릭하면 awesome : false ==> awesome : true<br />
+      각자 실습
     </h2>
     <div id="app3">
-        <button v-on:click="clickBind">클릭</button>
-        <span v-if="awesome">
-            Now you see me
-        </span>
-        <div v-else>
-            Now you don't
-        </div>
+      <button v-on:click="clickBind">클릭</button>
+      <span v-if="awesome">
+        Now you see me
+      </span>
+      <div v-else>
+        Now you don't
+      </div>
     </div>
 
     <h2>v-if/v-else-if/v-else 연습 4 : 실습</h2>
     <div id="app4">
-        <button v-on:click="clickBind">클릭</button>
-        <span v-if="type === 1">
-            A
-        </span>
-        <span v-else-if="type === 2">
-            B
-        </span>
-        <span v-else-if="type === 3">
-            C
-        </span>
-        <span v-else>
-            Not A/B/C
-        </span>
+      <button v-on:click="clickBind">클릭</button>
+      <span v-if="type === 1">
+        A
+      </span>
+      <span v-else-if="type === 2">
+        B
+      </span>
+      <span v-else-if="type === 3">
+        C
+      </span>
+      <span v-else>
+        Not A/B/C
+      </span>
     </div>
-</body>
+  </body>
 
 </html>
+
+
+
+<!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.7.8/dist/vue.js">/* vue 플러그인 임포트 */</script>
+
+<script>
+  new Vue({
+    /* edtmc^2w */
+    el: '#app4',
+    data: {
+      /* 인스턴스 안에서 사용되는 변수 등록, 공유 변수 */
+      /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
+      type: 0,
+    },
+    //template: ``,
+    methods: {
+      /* 이벤트 핸들러 등록 + 일반 함수 */
+      clickBind(e) {
+        console.log(e.target);
+        //this.$data.type = this.$data.type + 1;
+        this.$data.type = (this.$data.type + 1) % 4;
+      }
+    },
+  });
+
+
+  new Vue({
+    /* edtmc^2w */
+    el: '#app1',
+    data: {
+      /* 인스턴스 안에서 사용되는 변수 등록, 공유 변수 */
+      /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
+      awesome: true,
+    },
+    //template: ``,
+    methods: {
+      /* 이벤트 핸들러 등록 + 일반 함수 */
+
+    },
+    components: {
+      /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
+      /* 지역 컴포넌트나 파일 컴포넌트만 등록 한다. 예시) "태그명" : 컴포넌트명 */
+
+    },
+    computed: {
+      /* 자동처리 + 동기식. 변수명이 메서드 명이다. 메서드로 작성. return 필수.  data 와 공존 불가 */
+
+    },
+    watch: {
+      /* 자동처리 + 비동기식. data 에 등록된 프로퍼티(변수) 모니터링. 메서드로 작성. 매개변수 필수. 외부 api 호출을 위해서 사용 */
+
+    },
+    created() {
+      console.log("created");
+    },
+    mounted() {
+      console.log("mounted");
+    },
+    updated() {
+      console.log("updated");
+    },
+  });
+
+  new Vue({
+    /* edtmc^2w */
+    el: '#app2',
+    data: {
+      /* 인스턴스 안에서 사용되는 변수 등록, 공유 변수 */
+      /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
+      awesome: false,
+    },
+    //template: ``,
+    methods: {
+      /* 이벤트 핸들러 등록 + 일반 함수 */
+
+    },
+    components: {
+      /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
+      /* 지역 컴포넌트나 파일 컴포넌트만 등록 한다. 예시) "태그명" : 컴포넌트명 */
+
+    },
+    computed: {
+      /* 자동처리 + 동기식. 변수명이 메서드 명이다. 메서드로 작성. return 필수.  data 와 공존 불가 */
+
+    },
+    watch: {
+      /* 자동처리 + 비동기식. data 에 등록된 프로퍼티(변수) 모니터링. 메서드로 작성. 매개변수 필수. 외부 api 호출을 위해서 사용 */
+
+    },
+    created() {
+      console.log("created");
+    },
+    mounted() {
+      console.log("mounted");
+    },
+    updated() {
+      console.log("updated");
+    },
+  });
+
+  new Vue({
+    /* edtmc^2w */
+    el: '#app3',
+    data: {
+      /* 인스턴스 안에서 사용되는 변수 등록, 공유 변수 */
+      /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
+      awesome: false,
+    },
+    //template: ``,
+    methods: {
+      /* 이벤트 핸들러 등록 + 일반 함수 */
+      clickBind(e) {
+        console.log(e.target);
+        if (this.$data.awesome) {
+          this.$data.awesome = false;
+        }
+        else {
+          this.$data.awesome = true;
+        }
+        //this.$data.awesome = !this.$data.awesome;
+      }
+    },
+  });
+
+
+
+
+
+</script>

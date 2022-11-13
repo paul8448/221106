@@ -2,11 +2,11 @@
 
 const name = 'world';
 console.log(`Hello ${name}`);
-
+debugger;
 const getMessage = (params) => {
-    console.log(`Hello ${params}`);
+  console.log(`Hello ${params}`);
 };
 getMessage('sejoong');
 
-const str = "aaaa";
+const str = 'aaaa';
 console.log(str);

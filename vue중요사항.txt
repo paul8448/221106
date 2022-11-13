@@ -1,0 +1,27 @@
+https://www.npmjs.com/
+
+단축키:
+vueplugin
+vuei
+vuefc
+
+
+
+
+https://www.npmjs.com/package/nodemon
+
+
+실행서버
+
+
+실행중인 서버 중지
+ctrl + c
+
+변수 ==> data <== v- , {{ }},;
+함수 ==> methods <== v-on, @
+
+
+
+
+
+컨트롤 쉬프트 스페이스
