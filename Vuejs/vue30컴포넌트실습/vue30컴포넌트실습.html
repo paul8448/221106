@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+      content="ie=edge">
     <title>컴포넌트 실습용 Vue Project</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- CSS import -->
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet"
+      href="../css/reset.css">
 
-</head>
-<body>
+  </head>
+  <body>
     <div style="margin: 40px 0 0 30px;">
-        ※ 실행 전에  서버를 실행하세요. <a href="#" onClick="window.open('../../ES2015문법/ap09.서버통신/ap09-03.Node서버실행.html','Node서버실행','width=900,height=850,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;" rel="nofollow">Node서버실행</a>
-        <br>
-        <br>
-        <a href="#" onClick="window.open('https://vuejstodo-aa185.firebaseapp.com/','Todo앱확인','width=800,height=700,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;" rel="nofollow">TODO 애플리케이션 구현 확인 링크</a>
+      ※ 실행 전에 서버를 실행하세요. <a href="#"
+        onClick="window.open('../../ES2015문법/ap09.서버통신/ap09-03.Node서버실행.html','Node서버실행','width=900,height=850,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;"
+        rel="nofollow">Node서버실행</a>
+      <br>
+      <br>
+      <a href="#"
+        onClick="window.open('https://vuejstodo-aa185.firebaseapp.com/','Todo앱확인','width=800,height=700,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;"
+        rel="nofollow">TODO 애플리케이션 구현 확인 링크</a>
     </div>
     <xmp>
     Vue-CLI 을 사용하여 실습용 Vue 프로젝트를 만들어 본다.
@@ -58,7 +66,7 @@
     ##################################
     2. Vue-CLI 프로젝트 생성 및 설정 작업
     ##################################
-    
+
     step 2-01. Vue-CLI 전역 설치 삭제
         --global 는 전역을 의미한다.
         $ npm uninstall --global @vue/cli
@@ -432,7 +440,7 @@
 
 
     6. 라우팅 설정
-        ~/src/App.vue 에 router-link 추가
+        ~/src/App.vue 에 router-link (a 태그로 변함) 추가
         ~/src/router/index.js 수정
 
         step 6-1. ~/src/App.vue 에 router-link 추가
@@ -493,7 +501,7 @@
         <template>
             <div>
                 파일 컴포넌트가 등록되었습니다!
-                <span onclick="lclick">
+                <span v-on:click="lclick">
                     {{ localmsg }}
                 </span>
             </div>
@@ -984,5 +992,5 @@
 
     </xmp>
 
-</body>
+  </body>
 </html>
