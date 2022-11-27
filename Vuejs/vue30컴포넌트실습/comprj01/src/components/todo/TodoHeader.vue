@@ -1,11 +1,15 @@
-<style scoped></style>
+<style scoped>
+h1 {
+  color: #2f3b52;
+  font-weight: 900;
+  margin: 2.5rem 0 1.5rem;
+}
+</style>
 
 <template>
-  <div class="component-child">
-    Child counter : {{ num }} <br />
-    <button name="child" v-on:click="addCounter">+</button>
-    <button name="child" v-on:click="subCounter">-</button>
-  </div>
+  <header>
+    <h1>TODO it!</h1>
+  </header>
 </template>
 
 <script>
@@ -14,7 +18,7 @@
 
 export default {
   /* pdtmc^2w */
-  props: ['num'],
+  props: [],
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
     /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
@@ -32,16 +36,6 @@ export default {
       2) store.모듈명.actions 이름 그대로 사용하기
          ...mapActions('모듈명', ['액션명1', '액션명2']),
       */
-    addCounter(e) {
-      debugger;
-      console.log(e.target);
-      this.$emit('add-Counter', +1);
-    },
-    subCounter(e) {
-      debugger;
-      console.log(e.target);
-      this.$emit('sub-Counter', -1);
-    },
   },
   components: {
     /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */

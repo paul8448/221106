@@ -1,24 +1,32 @@
 <style scoped></style>
 
 <template>
-  <div class="component-child">
-    Child counter : {{ num }} <br />
-    <button name="child" v-on:click="addCounter">+</button>
-    <button name="child" v-on:click="subCounter">-</button>
+  <div id="app">
+    <h1>{{ header }}</h1>
+    <h2>{{ welcome }}</h2>
+    <h3>{{ counter }}</h3>
+    <div><input type="checkbox" v-model="callapi" />외부 api 호출</div>
+    <button v-on:click="handlerIncrement">더해줘</button>
+    <button v-on:click="handlerDecrement">빼줘</button>
   </div>
 </template>
 
 <script>
 // vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
-// import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
+import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
 
 export default {
   /* pdtmc^2w */
-  props: ['num'],
+  props: [],
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
     /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
-    return {};
+    return {
+      header: 'Vuex 사용 앱',
+      //welcome: 'HELLO WORLD',
+      //counter: 0,
+      callapi: false,
+    };
   },
   //template: ``,
   methods: {
@@ -32,15 +40,22 @@ export default {
       2) store.모듈명.actions 이름 그대로 사용하기
          ...mapActions('모듈명', ['액션명1', '액션명2']),
       */
-    addCounter(e) {
-      debugger;
+    ...mapActions('conterStore', {
+      dispatchSet: 'setConuter',
+      dispatchGet: 'get',
+    }),
+
+    handlerIncrement(e) {
       console.log(e.target);
-      this.$emit('add-Counter', +1);
+      debugger;
+      //this.$data.counter = this.$data.counter + 1;
+      this.dispatchSet(+1);
     },
-    subCounter(e) {
-      debugger;
+    handlerDecrement(e) {
       console.log(e.target);
-      this.$emit('sub-Counter', -1);
+      debugger;
+      // this.$data.counter = this.$data.counter - 1;
+      this.dispatchGet(-1);
     },
   },
   components: {
@@ -58,6 +73,7 @@ export default {
       2) store.모듈명.getters 이름 그대로 사용하기(추천방식)
          ...mapGetters('모듈명', ['게터명1', '게터명2']),
       */
+    ...mapGetters('counterStore', ['welcome', 'counter']),
   },
   watch: {
     /* 자동처리 + 비동기식. data 에 등록된 프로퍼티(변수) 모니터링. 메서드로 작성. 매개변수 필수. 외부 api 호출을 위해서 사용 */

@@ -1,24 +1,91 @@
-<style scoped></style>
+<style scoped>
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+  margin-top: 0;
+  text-align: left;
+}
+li {
+  display: flex;
+  min-height: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0.5rem 0;
+  padding: 0 0.9rem;
+  background: white;
+  border-radius: 5px;
+}
+li.checked {
+  background: #bbb;
+  color: #fff;
+  text-decoration: line-through;
+}
+.checkBtn {
+  line-height: 45px;
+  color: #62acde;
+  margin-right: 5px;
+}
+.removeBtn {
+  margin-left: auto;
+  color: #de4343;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s;
+}
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
 
 <template>
-  <div class="component-child">
-    Child counter : {{ num }} <br />
-    <button name="child" v-on:click="addCounter">+</button>
-    <button name="child" v-on:click="subCounter">-</button>
-  </div>
+  <section>
+    <transition-group name="list" tag="ul">
+      <li
+        v-for="todoItem in todoItems"
+        v-bind:key="todoItem.id"
+        v-bind:class="checked(todoItem.done)"
+        v-on:click="doneToggle(todoItem.id)"
+      >
+        <i class="checkBtn fas fa-check" aria-hidden="true"></i>
+        {{ todoItem.todo }}
+        <span
+          class="removeBtn"
+          type="button"
+          v-on:click.stop="removeTodo(todoItem.id)"
+        >
+          <i class="far fa-trash-alt" aria-hidden="true"></i>
+        </span>
+      </li>
+    </transition-group>
+  </section>
 </template>
 
 <script>
 // vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
 // import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
+//변수
+//
+
+//함수
 
 export default {
   /* pdtmc^2w */
-  props: ['num'],
+  props: ['todoItems'],
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
     /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
-    return {};
+    return {
+      // todoItems: [
+      //   { id: 1, todo: '영화보기', done: false },
+      //   { id: 2, todo: '주말 산책', done: true },
+      //   { id: 3, todo: 'ES6 학습', done: false },
+      //   { id: 4, todo: '잠실 야구장', done: false },
+      // ],
+    };
   },
   //template: ``,
   methods: {
@@ -32,15 +99,21 @@ export default {
       2) store.모듈명.actions 이름 그대로 사용하기
          ...mapActions('모듈명', ['액션명1', '액션명2']),
       */
-    addCounter(e) {
-      debugger;
-      console.log(e.target);
-      this.$emit('add-Counter', +1);
+    checked(done) {
+      console.log(done);
+      if (done === true) return 'checked';
+      return null;
     },
-    subCounter(e) {
-      debugger;
-      console.log(e.target);
-      this.$emit('sub-Counter', -1);
+    doneToggle(id) {
+      console.log(id);
+      this.$emit('doneToggle', id);
+    },
+    removeTodo(id) {
+      console.log(id);
+      this.$emit('removeTodo', id);
+      //이벤트 버블링 막기
+      //vue에서 .stop사용
+      window.event.stopPropagation();
     },
   },
   components: {

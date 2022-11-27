@@ -1,27 +1,111 @@
-<style scoped></style>
+<style scoped>
+body {
+  text-align: center;
+  background-color: #f6f6f8;
+}
+input {
+  border-style: groove;
+  width: 200px;
+}
+button {
+  border-style: groove;
+}
+.shadow {
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
+}
+</style>
 
 <template>
-  <div class="component-child">
-    Child counter : {{ num }} <br />
-    <button name="child" v-on:click="addCounter">+</button>
-    <button name="child" v-on:click="subCounter">-</button>
+  <div id="app">
+    <!-- TodoHeader -->
+    <TodoHeader></TodoHeader>
+    <!-- TodoInput -->
+    <TodoInput v-on:addTodo="addTodo"></TodoInput>
+    <!-- TodoList -->
+    <TodoList
+      v-bind:todoItems="todoItems"
+      v-on:doneToggle="doneToggle"
+      v-on:removeTodo="removeTodo"
+    ></TodoList>
+    <!-- TodoFooter -->
+    <TodoFooter v-on:clearAll="clearAll"></TodoFooter>
   </div>
 </template>
-
 <script>
 // vuex 라이브러리에서 mapActions, mapMutations, mapState, mapGetters 함를 가져옵니다.
 // import { mapActions, mapMutations, mapState, mapGetters } from 'vuex';
+import TodoHeader from '../components/todo/TodoHeader.vue';
+import TodoFooter from '../components/todo/TodoFooter.vue';
+import TodoInput from '../components/todo/TodoInput.vue';
+import TodoList from '../components/todo/TodoList.vue';
 
 export default {
   /* pdtmc^2w */
-  props: ['num'],
+  props: [],
   data() {
     /* 컴포넌트 안에서 사용되는 변수 등록. 개별 변수 */
     /* data 프로퍼티 값 변경시 this.set(object, key, value) 을 사용 */
-    return {};
+    return {
+      todoItems: [
+        { id: 1, todo: '영화보기', done: false },
+        { id: 2, todo: '주말 산책', done: true },
+        { id: 3, todo: 'ES6 학습', done: false },
+        { id: 4, todo: '잠실 야구장', done: false },
+      ],
+    };
   },
   //template: ``,
   methods: {
+    clearAll(e) {
+      console.log(e.target);
+      this.$data.todoItems = {};
+    },
+    addTodo(e, newTodoItem) {
+      // console.log(e.target);
+      console.log(newTodoItem);
+      if (!newTodoItem) {
+        return;
+      }
+      const ids = this.$data.todoItems.map((item) => item.id);
+      console.log(ids);
+
+      const maxid = ids.reduce((pvalue, cvalue) => {
+        if (pvalue > cvalue) return pvalue;
+        else return cvalue;
+      }, 0);
+      console.log(maxid);
+
+      const newid = maxid + 1;
+
+      const newTodo = {
+        id: newid,
+        todo: newTodoItem,
+        done: false,
+      };
+
+      this.$data.todoItems = [...this.$data.todoItems, newTodo];
+    },
+    doneToggle(id) {
+      console.log(id);
+      const newTodos = this.$data.todoItems.map((item /*, index, array*/) => {
+        if (item.id === id) {
+          item.done = !item.done;
+        }
+
+        return item;
+      }); //복제
+      this.$data.todoItems = newTodos; //재할당
+    },
+    removeTodo(id) {
+      console.log(id);
+      const newTodos = this.$data.todoItems.filter((item) => {
+        if (item.id === id) {
+          return false;
+        }
+        return true;
+      }); //복제
+      this.$data.todoItems = newTodos; //재할당
+    },
     /* 이벤트 핸들러 등록 + 일반 함수 */
     /* vuex 를 사용하는 경우
       mapActions 는 store의 actions 를 가져옵니다.
@@ -32,20 +116,14 @@ export default {
       2) store.모듈명.actions 이름 그대로 사용하기
          ...mapActions('모듈명', ['액션명1', '액션명2']),
       */
-    addCounter(e) {
-      debugger;
-      console.log(e.target);
-      this.$emit('add-Counter', +1);
-    },
-    subCounter(e) {
-      debugger;
-      console.log(e.target);
-      this.$emit('sub-Counter', -1);
-    },
   },
   components: {
     /* 전역 컴포넌트인 경우는 등록하지 않는다. 전역 컴포넌트는 프로토타입 체인으로 찾을 수 있기 때문에 */
     /* 지역 컴포넌트나 파일 컴포넌트만 등록 한다. 예시) "태그명" : 컴포넌트명 */
+    TodoHeader: TodoHeader,
+    TodoFooter: TodoFooter,
+    TodoInput: TodoInput,
+    TodoList: TodoList,
   },
   computed: {
     /* 자동처리 + 동기식. 메서드로 작성. return 필수. data 와 공존 불가 */
