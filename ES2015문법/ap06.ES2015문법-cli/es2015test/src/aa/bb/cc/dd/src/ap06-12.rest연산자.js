@@ -12,3 +12,12 @@
     rest 연산자(...)를 사용하여 함수의 매개변수를 작성한 형태다.
     함수의 매개변수로 넘어오는 값들을 "배열"로 만든다.
 */
+
+function greet(...args) {
+  console.log('arguments >>', arguments);
+  console.log('\n\n');
+}
+
+greet();
+greet('Elise');
+greet('Mike', 'hi');

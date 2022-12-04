@@ -63,3 +63,23 @@ idA
 함수
 
 clickBindID
+
+
+
+
+
+
+
+
+
+
+
+
+
+리액트 중요
+
+reactplugin 팡리에서 사용
+
+rfchtml 함수형 컴포넌트 코드에서 생성
+rfc js
+rdx 코드생성

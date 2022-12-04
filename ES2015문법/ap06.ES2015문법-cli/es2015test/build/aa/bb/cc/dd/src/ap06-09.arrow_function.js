@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 
         ES6 의 화살표 사용법을 학습한다.
@@ -19,4 +21,16 @@
             iterator를 생성해서 next()로 순회할 수 있는 자료구조가 이터러블
 
 */
-"use strict";
+
+var func1 = function func1(a, b) {
+  return a + b;
+};
+console.log(func1(3, 4));
+var func2 = function func2(a, b) {
+  return a + b;
+};
+console.log(func2(3, 4));
+var func3 = function func3(a, b) {
+  return a + b;
+};
+console.log(func3(3, 4));

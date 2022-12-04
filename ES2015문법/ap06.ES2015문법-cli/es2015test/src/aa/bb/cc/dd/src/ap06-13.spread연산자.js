@@ -32,10 +32,43 @@ console.log(cities[0], cities[1], cities[2]);
 console.log(x, y, z);
 console.log(...cities); //???
 
-
-const east = ["u", "k", "t"];
-const west = ["n", "c", "g"];
+const east = ['u', 'k', 't'];
+const west = ['n', 'c', 'g'];
 
 console.log(east.concat(west));
-const  countries = [...east, ...west];
-console.log( countries );
+const countries = [...east, ...west];
+console.log(countries);
+
+const car1 = {
+  type: 't1',
+  color: 's1',
+  model: 2017,
+};
+const car2 = {
+  type: 't2',
+  color: 's2',
+  model: 2018,
+};
+
+const { type } = car1;
+console.log(type);
+
+const func = function ({ type }) {
+  console.log(type);
+};
+
+func({ ...car1, ...car2 });
+
+const moring = {
+  breacfast: 'soup',
+  lunch: 'fish',
+};
+
+const dinner = 'bbq';
+
+const meals = {
+  ...moring,
+  dinner,
+};
+
+console.log(meals);

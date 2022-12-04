@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+      content="ie=edge">
     <title>Vue ToDo Project</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- CSS import -->
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet"
+      href="../css/reset.css">
 
-</head>
-<body>
+  </head>
+  <body>
     <div style="margin: 40px 0 0 30px;">
-        <p>컴포넌트를 이용하여 아래의 Todo 실행 화면을 작성하여 본다.</p>
-        <a href="#" onClick="window.open('https://vuejstodo-aa185.firebaseapp.com/','Todo앱확인','width=800,height=700,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;" rel="nofollow">TODO 애플리케이션 구현 확인 링크</a>
+      <p>컴포넌트를 이용하여 아래의 Todo 실행 화면을 작성하여 본다.</p>
+      <a href="#"
+        onClick="window.open('https://vuejstodo-aa185.firebaseapp.com/','Todo앱확인','width=800,height=700,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;"
+        rel="nofollow">TODO 애플리케이션 구현 확인 링크</a>
     </div>
 
     <p style="margin: 10px 0 -20px 30px;">※ 실행시 Todo html 코드 예시</p>
@@ -85,7 +91,7 @@
     * 페이지 129~174를 참고
     * vue29-01.ToDo.html 예제 참조
 
-    "vue40App" 폴더의 vueapp01 프로젝트에 아래 기능을 추가한다. 
+    "vue40App" 폴더의 vueapp01 프로젝트에 아래 기능을 추가한다.
 
     ##################################
     1. 앱 요구사항
@@ -243,10 +249,10 @@
 
         step 7-2-2. src/components/todo/TodoHeader.vue  에 추가
             < script>
-            export default {
+              export default {
                 /* pdtmc^2w */
                 props: []
-            };
+              };
             </script>
 
         step 7-2-3. src/views/TodoView.vue 에 TodoHeader컴포넌트 등록
@@ -259,14 +265,14 @@
             </template>
 
             < script>
-            import TodoHeader from "@/components/todo/TodoHeader.vue";
+              import TodoHeader from "@/components/todo/TodoHeader.vue";
 
-            export default {
+              export default {
                 // ... 중략
-                components : {
-                    TodoHeader,
+                components: {
+                  TodoHeader,
                 }
-            }
+              }
             </script>
 
 
@@ -277,15 +283,15 @@
 
         step 7-3-2. src/components/todo/TodoFooter.vue  에 추가
             < script>
-            export default {
+              export default {
                 /* pdtmc^2w */
                 props: [],
                 methods: {
-                    clearAll(e) {
-                        console.log(e.target);
-                    }
+                  clearAll(e) {
+                    console.log(e.target);
+                  }
                 }
-            };
+              };
             </script>
 
         step 7-3-3. src/views/TodoView.vue 에 TodoFooter 컴포넌트 등록
@@ -301,19 +307,19 @@
             </template>
 
             < script>
-            import TodoHeader from "@/components/todo/TodoHeader.vue";
-            import TodoFooter from "@/components/todo/TodoFooter.vue";
+              import TodoHeader from "@/components/todo/TodoHeader.vue";
+              import TodoFooter from "@/components/todo/TodoFooter.vue";
 
-            export default {
+              export default {
                 // ... 중략
                 methods{
-                    clearAll(){
-                      // ... 중략
-                    },
+                clearAll(){
+                  // ... 중략
                 },
-                components : {
-                    TodoHeader: TodoHeader,
-                    TodoFooter: TodoFooter,
+              },
+              components: {
+                TodoHeader: TodoHeader,
+                  TodoFooter: TodoFooter,
                 }
             }
             </script>
@@ -356,18 +362,18 @@
             </template>
 
             < script>
-            import TodoHeader from "@/components/todo/TodoHeader.vue";
-            import TodoFooter from "@/components/todo/TodoFooter.vue";
-            import TodoInput from "@/components/todo/TodoInput.vue";
+              import TodoHeader from "@/components/todo/TodoHeader.vue";
+              import TodoFooter from "@/components/todo/TodoFooter.vue";
+              import TodoInput from "@/components/todo/TodoInput.vue";
 
-            export default {
+              export default {
                 // ... 중략
-                components : {
-                    TodoHeader: TodoHeader,
-                    TodoFooter: TodoFooter,
-                    TodoInput: TodoInput,
+                components: {
+                  TodoHeader: TodoHeader,
+                  TodoFooter: TodoFooter,
+                  TodoInput: TodoInput,
                 }
-            }
+              }
             </script>
 
 
@@ -376,18 +382,18 @@
             vue61ToDo/1차/TodoList.vue 내용을 복사하여 붙여넣기
         step 7-5-2. src/components/todo/TodoList.vue   에 추가
             < script>
-            export default {
+              export default {
                 /* pdtmc^2w */
                 props: ["todoItems"],
                 methods: {
-                    checked(done) {
-                    },
-                    doneToggle(id) {
-                    },
-                    removeTodo(id) {
-                    }
+                  checked(done) {
+                  },
+                  doneToggle(id) {
+                  },
+                  removeTodo(id) {
+                  }
                 }
-            };
+              };
             </script>
         step 7-5-3. src/views/TodoView.vue 에 컴포넌트 등록 및 template 에 props와 event 바인드를 설정
             <template>
@@ -414,29 +420,29 @@
             </template>
 
             < script>
-            import TodoHeader from "@/components/todo/TodoHeader.vue";
-            import TodoInput  from "@/components/todo/TodoInput.vue";
-            import TodoList   from "@/components/todo/TodoList.vue";
-            import TodoFooter from "@/components/todo/TodoFooter.vue";
+              import TodoHeader from "@/components/todo/TodoHeader.vue";
+              import TodoInput from "@/components/todo/TodoInput.vue";
+              import TodoList from "@/components/todo/TodoList.vue";
+              import TodoFooter from "@/components/todo/TodoFooter.vue";
 
-            export default {
+              export default {
                 data() {
-                    return {
-                        todoItems: [
-                            { id: 1, todo: "영화보기", done: false },
-                            { id: 2, todo: "주말 산책", done: true },
-                            { id: 3, todo: "ES6 학습", done: false },
-                            { id: 4, todo: "잠실 야구장", done: false }
-                        ]
-                    };
+                  return {
+                    todoItems: [
+                      { id: 1, todo: "영화보기", done: false },
+                      { id: 2, todo: "주말 산책", done: true },
+                      { id: 3, todo: "ES6 학습", done: false },
+                      { id: 4, todo: "잠실 야구장", done: false }
+                    ]
+                  };
                 },
-                components : {
-                    TodoHeader: TodoHeader,
-                    TodoFooter: TodoFooter,
-                    TodoInput: TodoInput,
-                    TodoList: TodoList,
+                components: {
+                  TodoHeader: TodoHeader,
+                  TodoFooter: TodoFooter,
+                  TodoInput: TodoInput,
+                  TodoList: TodoList,
                 }
-            }
+              }
             </script>
 
 
@@ -450,171 +456,171 @@
 
         step 9-2. src/components/todo/TodoFooter.vue  에 추가
         < script>
-        export default {
+          export default {
             /* pdtmc^2w */
             props: [],
             methods: {
-                clearAll() {
-                    this.$emit("clearAll");
-                }
+              clearAll() {
+                this.$emit("clearAll");
+              }
             }
-        };
+          };
         </script>
 
 
         step 9-3. src/components/todo/TodoList.vue   에 추가
         < script>
-        export default {
+          export default {
             /* pdtmc^2w */
             props: ["todoItems"],
             methods: {
-                checked(done) {
-                    if (done) {
-                        return "checked"; // 또는 {checked: true}
-                    } else {
-                        return null; // 또는 {checked: false}
-                    }
-                },
-                doneToggle(id) {
-                    this.$emit("doneToggle", id);
-                },
-                removeTodo(id) {
-                    this.$emit("removeTodo", id);
-                },
+              checked(done) {
+                if (done) {
+                  return "checked"; // 또는 {checked: true}
+                } else {
+                  return null; // 또는 {checked: false}
+                }
+              },
+              doneToggle(id) {
+                this.$emit("doneToggle", id);
+              },
+              removeTodo(id) {
+                this.$emit("removeTodo", id);
+              },
             }
-        };
+          };
         </script>
 
 
         step 9-4. rc/components/todo/TodoInput.vue  에 추가
         < script>
-        export default {
+          export default {
             /* pdtmc^2w */
             props: [],
             data() {
-                return {
-                    newTodoItem: null,
-                    showModal: false
-                };
+              return {
+                newTodoItem: null,
+                showModal: false
+              };
             },
             methods: {
-                addTodo() {
-                    if (
-                        this.$data.newTodoItem &&
-                        this.$data.newTodoItem.trim() !== ""
-                    ) {
-                        // 부모에게 addTodo 이벤트에 값을 담아서 넘기기
-                        const newTodoItem = this.$data.newTodoItem.trim();
-                        this.$emit("addTodo", newTodoItem);
+              addTodo() {
+                if (
+                  this.$data.newTodoItem &&
+                  this.$data.newTodoItem.trim() !== ""
+                ) {
+                  // 부모에게 addTodo 이벤트에 값을 담아서 넘기기
+                  const newTodoItem = this.$data.newTodoItem.trim();
+                  this.$emit("addTodo", newTodoItem);
 
-                        // input 태그 초기화
-                        this.$set(this.$data, "newTodoItem", "");
-                    } else {
-                        this.$data.showModal = !this.$data.showModal;
-                    }
+                  // input 태그 초기화
+                  this.$set(this.$data, "newTodoItem", "");
+                } else {
+                  this.$data.showModal = !this.$data.showModal;
                 }
+              }
             }
-        };
+          };
         </script>
 
 
         step 9-5. src/views/TodoView.vue  에 추가
         < script>
-        import TodoHeader from "@/components/todo/TodoHeader.vue";
-        import TodoInput from "@/components/todo/TodoInput.vue";
-        import TodoList from "@/components/todo/TodoList.vue";
-        import TodoFooter from "@/components/todo/TodoFooter.vue";
+          import TodoHeader from "@/components/todo/TodoHeader.vue";
+          import TodoInput from "@/components/todo/TodoInput.vue";
+          import TodoList from "@/components/todo/TodoList.vue";
+          import TodoFooter from "@/components/todo/TodoFooter.vue";
 
-        export default {
+          export default {
             /* pdtmc^2w */
             props: [],
             data() {
-                return {
-                    todoItems: [
-                        { id: 1, todo: "영화보기", done: false },
-                        { id: 2, todo: "주말 산책", done: true },
-                        { id: 3, todo: "ES6 학습", done: false },
-                        { id: 4, todo: "잠실 야구장", done: false }
-                    ]
-                };
+              return {
+                todoItems: [
+                  { id: 1, todo: "영화보기", done: false },
+                  { id: 2, todo: "주말 산책", done: true },
+                  { id: 3, todo: "ES6 학습", done: false },
+                  { id: 4, todo: "잠실 야구장", done: false }
+                ]
+              };
             },
             //template: ``,
             methods: {
-                clearAll() {
-                    // delete
-                    //this.$data.todoItems = [];
-                    this.$set(this.$data, "todoItems", []);
-                },
-                doneToggle(id) {
-                    // update
-                    const newTodos = this.$data.todoItems.map((item) => {
-                      if (item.id === id) {
-                        item.done = !item.done;
-                      }
-                      return item;
-                    });
-                    this.$data.todoItems = newTodos;
-                },
-                removeTodo(id) {
-                    // delete: ;
-                    const newTodos = this.$data.todoItems.filter((item) => {
-                        if (item.id === id) {
-                          return false;
-                        }
-                        return true;
-                    });
-                    this.$data.todoItems = newTodos;
+              clearAll() {
+                // delete
+                //this.$data.todoItems = [];
+                this.$set(this.$data, "todoItems", []);
+              },
+              doneToggle(id) {
+                // update
+                const newTodos = this.$data.todoItems.map((item) => {
+                  if (item.id === id) {
+                    item.done = !item.done;
+                  }
+                  return item;
+                });
+                this.$data.todoItems = newTodos;
+              },
+              removeTodo(id) {
+                // delete: ;
+                const newTodos = this.$data.todoItems.filter((item) => {
+                  if (item.id === id) {
+                    return false;
+                  }
+                  return true;
+                });
+                this.$data.todoItems = newTodos;
 
-                    // 이벤트 취소
-                    window.event.stopPropagation();
-                    window.event.preventDefault();
-                },
-                addTodo(newTodoItem) {
+                // 이벤트 취소
+                window.event.stopPropagation();
+                window.event.preventDefault();
+              },
+              addTodo(newTodoItem) {
 
-                    // newTodoItem 값이 없으면 종료한다. 빈값 호출 방지.
-                    // 입력된 값 초기화
+                // newTodoItem 값이 없으면 종료한다. 빈값 호출 방지.
+                // 입력된 값 초기화
 
-                    // max id 구하기 ==> map과 reduce 를 사용하여
-                    // todoItems 추가할 객체 만들기
-                    // 배열에 추가
+                // max id 구하기 ==> map과 reduce 를 사용하여
+                // todoItems 추가할 객체 만들기
+                // 배열에 추가
 
-                    // newTodoItem 값이 없으면 종료한다. 빈값 호출 방지.
-                    if (newTodoItem && newTodoItem.trim() === "") {
-                        return;
-                    }
+                // newTodoItem 값이 없으면 종료한다. 빈값 호출 방지.
+                if (newTodoItem && newTodoItem.trim() === "") {
+                  return;
+                }
 
-                    const maxid = this.$data.todoItems
-                        .map((item) => {
-                            return item.id;
-                        }) // [1,2,3,4], []
-                        .reduce((pvaule, cvalue) => {
-                            return pvaule > cvalue ? pvalue : cvalue;
-                        }, 0);
+                const maxid = this.$data.todoItems
+                  .map((item) => {
+                    return item.id;
+                  }) // [1,2,3,4], []
+                  .reduce((pvaule, cvalue) => {
+                    return pvaule > cvalue ? pvalue : cvalue;
+                  }, 0);
 
-                    const newid = maxid + 1;
+                const newid = maxid + 1;
 
 
-                    // 추가할 객체 생성:
-                    // input에 입력된 값 ==> newTodoItem ;
-                    const newTodo = {
-                        id: newid,
-                        todo: newTodoItem,
-                        done: false
-                    };
+                // 추가할 객체 생성:
+                // input에 입력된 값 ==> newTodoItem ;
+                const newTodo = {
+                  id: newid,
+                  todo: newTodoItem,
+                  done: false
+                };
 
-                    // this.$data.todoItems 에 newTodo를 추가하시오.
-                    // this.$data.todoItems.push(newTodo);
-                    // this.$data.todoItems[this.$data.todoItems.length] = newTodo;
-                    this.$set(this.$data.todoItems, this.$data.todoItems.length, newTodo);
-                },
+                // this.$data.todoItems 에 newTodo를 추가하시오.
+                // this.$data.todoItems.push(newTodo);
+                // this.$data.todoItems[this.$data.todoItems.length] = newTodo;
+                this.$set(this.$data.todoItems, this.$data.todoItems.length, newTodo);
+              },
             },
             components: {
-                TodoHeader: TodoHeader,
-                TodoInput: TodoInput,
-                TodoList: TodoList,
-                TodoFooter: TodoFooter
+              TodoHeader: TodoHeader,
+              TodoInput: TodoInput,
+              TodoList: TodoList,
+              TodoFooter: TodoFooter
             }
-        };
+          };
         </script>
 
 
@@ -892,70 +898,70 @@
 
         13-2. src\views\TodoView.vue 수정
         < script>
-            import TodoHeader from "@/components/todo/TodoHeader.vue";
-            import TodoInput from "@/components/todo/TodoInput.vue";
-            import TodoList from "@/components/todo/TodoList.vue";
-            import TodoFooter from "@/components/todo/TodoFooter.vue";
+          import TodoHeader from "@/components/todo/TodoHeader.vue";
+          import TodoInput from "@/components/todo/TodoInput.vue";
+          import TodoList from "@/components/todo/TodoList.vue";
+          import TodoFooter from "@/components/todo/TodoFooter.vue";
 
-            export default {
-                /* pdtmc^2w */
-                data: function() {
-                    return {};
-                },
-                //template: ``,
-                methods: {
-                    // mapActions Vuex 헬퍼 메서드를 이용해서
-                    // todoStore 의 액션 메서드 가져오기
-                    // 사용법: ...mapActions('모듈명', { dispatch액션명1: '액션명1', dispatch액션명2: '액션명2' }),
-                    ...mapActions('todoStore', {
-                        dispatchClearAll: 'clearAll',
-                        dispatchDoneToggle: 'doneToggle',
-                        dispatchRemoveTodo: 'removeTodo',
-                        dispatchAddTodo: 'addTodo',
-                        dispatchGetTodo: 'getTodo',
-                    }),
+          export default {
+            /* pdtmc^2w */
+            data: function () {
+              return {};
+            },
+            //template: ``,
+            methods: {
+              // mapActions Vuex 헬퍼 메서드를 이용해서
+              // todoStore 의 액션 메서드 가져오기
+              // 사용법: ...mapActions('모듈명', { dispatch액션명1: '액션명1', dispatch액션명2: '액션명2' }),
+              ...mapActions('todoStore', {
+                dispatchClearAll: 'clearAll',
+                dispatchDoneToggle: 'doneToggle',
+                dispatchRemoveTodo: 'removeTodo',
+                dispatchAddTodo: 'addTodo',
+                dispatchGetTodo: 'getTodo',
+              }),
 
-                    clearAll: function() {
-                        // delete all. store의 "clearAll" dispatch
-                        this.dispatchClearAll();
-                    },
-                    doneToggle: function(id) {
-                        // update. store의 "doneToggle" dispatch
-                        this.dispatchDoneToggle(id);
-                    },
-                    removeTodo: function(id) {
-                        // delete each. store의 "removeTodo" dispatch
-                        this.dispatchRemoveTodo(id);
-                    },
-                    addTodo: function(newTodoItem) {
-                        // create. store "addTodo" dispatch
-                        this.dispatchAddTodo( newTodoItem );
-                    },
-                },
-                components: {
-                    TodoHeader: TodoHeader,
-                    TodoFooter: TodoFooter,
-                    TodoInput: TodoInput,
-                    TodoList: TodoList,
-                },
-                computed: {
-                    /* vuex 를 사용하는 경우
-                      mapGetters 는 store의 getters 를 가져오는 vuex 헬퍼 메서드다.
-                      namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.
-                      store 모듈에서 getters 를 가져오는 2가지 방식
-                      1) store.모듈명.getters 이름 바꾸어 사용하기
-                         ...mapGetters('모듈명', { get게터명1: '게터명1', get게터명2: '게터명2' }),
-                      2) store.모듈명.getters 이름 그대로 사용하기(추천방식)
-                         ...mapGetters('모듈명', ['게터명1', '게터명2']),
-                      */
-                    ...mapGetters('todoStore', ['todoItems']),
-                },
-                created: function() {
-                    console.log("created");
-                    // read. store의 "getTodo" dispatch
-                }
-            };
-            </script>
+              clearAll: function () {
+                // delete all. store의 "clearAll" dispatch
+                this.dispatchClearAll();
+              },
+              doneToggle: function (id) {
+                // update. store의 "doneToggle" dispatch
+                this.dispatchDoneToggle(id);
+              },
+              removeTodo: function (id) {
+                // delete each. store의 "removeTodo" dispatch
+                this.dispatchRemoveTodo(id);
+              },
+              addTodo: function (newTodoItem) {
+                // create. store "addTodo" dispatch
+                this.dispatchAddTodo(newTodoItem);
+              },
+            },
+            components: {
+              TodoHeader: TodoHeader,
+              TodoFooter: TodoFooter,
+              TodoInput: TodoInput,
+              TodoList: TodoList,
+            },
+            computed: {
+              /* vuex 를 사용하는 경우
+                mapGetters 는 store의 getters 를 가져오는 vuex 헬퍼 메서드다.
+                namespaced: true를 설정한 경우 네임스페이스를 사용하기 때문에 store의 모듈 명을 적어주어야 합니다.
+                store 모듈에서 getters 를 가져오는 2가지 방식
+                1) store.모듈명.getters 이름 바꾸어 사용하기
+                   ...mapGetters('모듈명', { get게터명1: '게터명1', get게터명2: '게터명2' }),
+                2) store.모듈명.getters 이름 그대로 사용하기(추천방식)
+                   ...mapGetters('모듈명', ['게터명1', '게터명2']),
+                */
+              ...mapGetters('todoStore', ['todoItems']),
+            },
+            created: function () {
+              console.log("created");
+              // read. store의 "getTodo" dispatch
+            }
+          };
+        </script>
     </xmp>
     <hr>
 
@@ -968,8 +974,10 @@
     </pre>
 
     <div style="margin: 0 0 0 90px;">
-        step 14-1. 서버 실행
-        ※ 실행 전에  서버를 실행하세요. <a href="#" onClick="window.open('../../ES2015문법/ap09.서버통신/ap09-03.Node서버실행.html','Node서버실행','width=900,height=850,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;" rel="nofollow">Node서버실행</a>
+      step 14-1. 서버 실행
+      ※ 실행 전에 서버를 실행하세요. <a href="#"
+        onClick="window.open('../../ES2015문법/ap09.서버통신/ap09-03.Node서버실행.html','Node서버실행','width=900,height=850,toolbar=no,menubar=no,scrollbars=no,resizable=yes');return false;"
+        rel="nofollow">Node서버실행</a>
     </div>
 
     <pre>
@@ -1099,66 +1107,66 @@
 
         step 14-3. src\views\TodoView.vue 수정
         < script>
-            import TodoHeader from "@/components/todo/TodoHeader.vue";
-            import TodoInput from "@/components/todo/TodoInput.vue";
-            import TodoList from "@/components/todo/TodoList.vue";
-            import TodoFooter from "@/components/todo/TodoFooter.vue";
+          import TodoHeader from "@/components/todo/TodoHeader.vue";
+          import TodoInput from "@/components/todo/TodoInput.vue";
+          import TodoList from "@/components/todo/TodoList.vue";
+          import TodoFooter from "@/components/todo/TodoFooter.vue";
 
-            import store from "@/store/index.js";  // <== 추가
+          import store from "@/store/index.js";  // <== 추가
 
-            export default {
-                /* pdtmc^2w */
-                data: function() {
-                    return {};
-                },
-                //template: ``,
-                methods: {
-                    addTodo: function(newTodoItem) {
-                        // create. store "addTodo" dispatch
-                        store.dispatch("addTodo", newTodoItem);
-                    },
-                    doneToggle: function(id) {
-                        // update. store의 "doneToggle" dispatch
-                        store.dispatch("doneToggle", id);
-                    },
-                    removeTodo: function(id) {
-                        // delete each. store의 "removeTodo" dispatch
-                        store.dispatch("removeTodo", id);
-                    },
-                    clearAll: function() {
-                        // delete all. store의 "clearAll" dispatch
-                        store.dispatch("clearAll");
-                    }
-                },
-                components: {
-                    TodoHeader: TodoHeader,
-                    TodoInput: TodoInput,
-                    TodoList: TodoList,
-                    TodoFooter: TodoFooter
-                },
-                computed: {
-                    /* computed를 사용하여 store의 state를 모니터링하게 작성
-                        * 동일한 프로퍼티명이 computed 와 data 에 존재하면 안된다. 한쪽에만 있어야 한다
-                        */
-                    todoItems: function() {
-                        return store.getters.todoItems;
-                    }
-                },
-                watch: {},
-                created: function() {
-                    console.log("created");
-                    // read. store의 "getTodo" dispatch
-                },
-                mounted: function() {
-                    console.log("mounted");
-                },
-                updated: function() {
-                    console.log("updated");
-                }
-            };
-            </script>
+          export default {
+            /* pdtmc^2w */
+            data: function () {
+              return {};
+            },
+            //template: ``,
+            methods: {
+              addTodo: function (newTodoItem) {
+                // create. store "addTodo" dispatch
+                store.dispatch("addTodo", newTodoItem);
+              },
+              doneToggle: function (id) {
+                // update. store의 "doneToggle" dispatch
+                store.dispatch("doneToggle", id);
+              },
+              removeTodo: function (id) {
+                // delete each. store의 "removeTodo" dispatch
+                store.dispatch("removeTodo", id);
+              },
+              clearAll: function () {
+                // delete all. store의 "clearAll" dispatch
+                store.dispatch("clearAll");
+              }
+            },
+            components: {
+              TodoHeader: TodoHeader,
+              TodoInput: TodoInput,
+              TodoList: TodoList,
+              TodoFooter: TodoFooter
+            },
+            computed: {
+              /* computed를 사용하여 store의 state를 모니터링하게 작성
+                  * 동일한 프로퍼티명이 computed 와 data 에 존재하면 안된다. 한쪽에만 있어야 한다
+                  */
+              todoItems: function () {
+                return store.getters.todoItems;
+              }
+            },
+            watch: {},
+            created: function () {
+              console.log("created");
+              // read. store의 "getTodo" dispatch
+            },
+            mounted: function () {
+              console.log("mounted");
+            },
+            updated: function () {
+              console.log("updated");
+            }
+          };
+        </script>
 
     </xmp>
 
-</body>
+  </body>
 </html>

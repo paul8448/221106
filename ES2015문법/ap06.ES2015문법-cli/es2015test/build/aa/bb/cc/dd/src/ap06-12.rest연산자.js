@@ -1,3 +1,5 @@
+"use strict";
+
 /*
     rest 연산자 사용법을 학습한다.
 
@@ -12,4 +14,14 @@
     rest 연산자(...)를 사용하여 함수의 매개변수를 작성한 형태다.
     함수의 매개변수로 넘어오는 값들을 "배열"로 만든다.
 */
-"use strict";
+
+function greet() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+  console.log('arguments >>', arguments);
+  console.log('\n\n');
+}
+greet();
+greet('Elise');
+greet('Mike', 'hi');
