@@ -111,8 +111,8 @@
     "description": "React Class Component"
   },
   "React Functional Component At plugin": {
-    //"prefix": "rfchtml",
-    "prefix": "rfc",
+    "prefix": "rfchtml",
+    //"prefix": "rfc",
     "body": [
       "function ${1:${TM_FILENAME_BASE}}({",
       "  ...props",
@@ -164,8 +164,7 @@
     "description": "React Functional Component At plugin"
   },
   "React Functional Component": {
-    //"prefix": "rfc",
-    "prefix": "rfc2",
+    "prefix": "rfc",
     "body": [
       "import React, { useState, useEffect, useRef, useCallback, useMemo, useReducer, Fragment, forwardRef, useImperativeHandle } from 'react';",
       "import PropTypes from 'prop-types';",

@@ -41,3 +41,49 @@
 </html>
 
 
+<script src="https://unpkg.com/@babel/standalone/babel.js"
+  crossorigin="anonymous">
+    /* 자바스크립트로 컴파일러. ES6-->ES5, JSX-- > ES5 * /
+  </script>
+<script src="http://unpkg.com/react@17/umd/react.development.js"
+  crossorigin="anonymous">
+    /* import React, { Component, PureComponent } from 'react' */
+  </script>
+<script src="http://unpkg.com/react-dom@17/umd/react-dom.development.js"
+  crossorigin="anonymous">
+    /* import ReactDOM from 'react-dom' */
+  </script>
+<script type="text/babel">
+
+  const { useState, useEffect, useRef, useCallback, useMemo, useReducer, Fragment } = React;
+
+  // id="app" 인 태그 에 컴포넌트를 화면에 붙이시오
+  // ReactDOM.render( 인자1, 인자2 )
+  ReactDOM.render(<Loop3 />, document.getElementById('wrap3'));
+
+  // 단축키 rfc
+  function Loop3({ ...props }) {
+    const [elements, setElements] = useState(['one', 'two', 'three']);
+
+    // lis = <li>one</li> <li>two</li> <li>three</li>
+    const lis = elements && elements.length > 0 && elements.map((value) => (<li>{value}</li>));
+    return (
+      <div>
+        {lis}
+      </div>
+    )
+  }
+
+  // id="wrap4" 인 태그 에 컴포넌트를 화면에 붙이시오
+  // ReactDOM.render( 인자1, 인자2 )
+  ReactDOM.render(<Loo4 />, document.getElementById('wrap4'));
+  function Loo4({ ...props }) {
+    const [elements, setElements] = useState(['one', 'two', 'three']);
+    return (
+      <div>
+        {elements && elements.length > 0 && elements.map((value) => (<li>{value}</li>))}
+      </div>
+    )
+  }
+
+</script>
