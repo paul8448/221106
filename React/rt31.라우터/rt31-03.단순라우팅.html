@@ -27,6 +27,7 @@
 
     1. BrowserRouter 설정
         작업파일: src/index.js
+        import { BrowserRouter } from 'react-router-dom';
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(
@@ -47,12 +48,12 @@
         </div>
 
     3. 메뉴 설정
-        Link나 NavLink 컴포넌트를 사용하여 작성. a 태그 사용 불가.
+        NavLink 컴포넌트를 사용하여 작성. a 태그 사용 불가.
         작업파일: src/App.js
 
         <div>
             <ul>
-                <li><NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to="/">Home</NavLink></li>
+                <li><NavLink to="/">Home</NavLink></li>
             </ul>
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -67,10 +68,10 @@
 
         $ mkdir -p src/components/
 
-        $ touch src/components/MenuHome \
-                src/components/Home \
-                src/components/Memo \
-                src/components/Topics
+        $ touch src/components/MenuHome.js \
+                src/components/Home.js \
+                src/components/Memo.js \
+                src/components/Topics.js
 
 
     5. recipes 예제 추가
